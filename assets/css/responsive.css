@@ -5,13 +5,13 @@
 }
 @media screen and (min-width: 768px) {
   .item-slideDemo:is(.active_0, .active_6) {
-    width: calc((100vw - 24px * 2) / 4 - (160vw - 24px * 6) / 7) !important;
+    width: calc((130vw - 24px * 2) / 4 - (160vw - 24px * 6) / 7) !important;
   }
   .item-slideDemo:is(.active_1, .active_2, .active_4, .active_5) {
-    width: calc((100vw - 24px * 2) / 4) !important;
+    width: calc((120vw - 45px * 2) / 5) !important;
   }
   .wrap-slideDemo .item-slideDemo.active_3 {
-    width: calc((100vw - 24px * 2) / 2) !important;
+    width: calc((80vw - 24px * 2) / 2) !important;
   }
 }
 
@@ -372,6 +372,21 @@
 .heading-1 {
   font-size: 6.4vw;
 } */
+header .mega-menu .menu-mobile {
+  position: relative;
+}
+header .mega-menu .menu-mobile::after {
+  content: '';
+  display: inline-block;
+  width: 5.33vw;
+  height: 5.33vw;
+  background: url(https://dev.kienthinh.vn/wp-content/lib/kienthinh/img/header/close-btn.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  right: -8vw;
+  top: 0;
+}
+
 .button {
   color: #fff;
   background-color: var(--primary-color);

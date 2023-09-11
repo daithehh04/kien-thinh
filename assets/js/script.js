@@ -324,7 +324,7 @@ let mobileMenu = document.getElementsByClassName("menu-mobile")[0];
 
 let modalListActions = document.getElementsByClassName("list-actions")[0];
 
-let btnClose = document.querySelector(".btn-close");
+// let btnClose = document.querySelector("header .mega-menu > ul .home::after");
 
 let aboutHeader = document.querySelector(".about-header");
 function openModal() {
@@ -339,7 +339,7 @@ function closeModal() {
 }
 
 mobileMenu.addEventListener("click", openModal);
-btnClose.addEventListener("click", closeModal);
+// btnClose.addEventListener("click", closeModal);
 
 // -----toggle dropdown-----//
 
@@ -466,11 +466,49 @@ scrollReveal();
 const slidesAbout = document.querySelectorAll('.slide-about')
 const slidesContent = document.querySelectorAll('.content-item')
 
-// swiper2.on("slideChange", function () {
-//   console.log(1);
-// });
 swiper2.on('slideChange', (swiper) => {
   document.querySelector('.content-item.show').classList.remove('show')
   let swiperIndex = swiper.realIndex
   slidesContent[swiperIndex].classList.add('show')
 })
+
+// =======================
+    const nav = document.querySelector('.mega-menu')
+
+    window.addEventListener('scroll', function () {
+      var scrollPosition = window.pageYOffset || document.documentElement.scrollTop
+      if (scrollPosition >= 200) {
+        nav.classList.add('nav-active')
+      } else {
+        nav.classList.remove('nav-active')
+      }
+    })
+    // ===========================
+    window.addEventListener('scroll', headerSticky)
+    let lastScrolledPos = 0
+    function headerSticky() {
+      if (lastScrolledPos >= window.scrollY) {
+        nav.classList.remove('header-hide')
+      } else {
+        nav.classList.add('header-hide')
+      }
+      lastScrolledPos = window.scrollY
+    }
+
+  const menuMobile = document.querySelector('.mega-menu > ul')
+  
+  menuMobile.addEventListener('scroll', function() {
+    if (nav.classList.contains('header-hide')) {
+      nav.classList.remove('header-hide')
+    }
+  })
+
+  let text = document.querySelector(".profile .heading-1");
+      let contentText = text.textContent;
+      let arrText = contentText.split("");
+      let newArr = arrText.map(
+        (item, index) => `<span style='--i:${index + 1}'>${item}</span>`
+      );
+      text.innerHTML = newArr.join("");
+
+ 
